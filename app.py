@@ -135,8 +135,16 @@ class Hospital:
 
         #======================== DATA FRAME RIGHT ===========================
 
-        self.txtPrescrption=Text(DataframeRight,font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
+        self.txtPrescrption=Text(DataframeRight,font=("arial",12,"bold"),width=45,height=16,padx=2,pady=6)
         self.txtPrescrption.grid(row=0,column=0)
+
+        
+        lblPatientAddess=Label(DataframeLeft,font=("arial",12,"bold"),text="Patient Address:",padx=2,pady=6)
+        lblPatientAddess.grid(row=8,column=2,sticky=W)
+        txtPatientAddress=Entry(DataframeLeft,font=("arial",13,"bold"),width=35)
+        txtPatientAddress.grid(row=8,column=3)
+
+
 
 root=Tk()
 ob=Hospital(root)
