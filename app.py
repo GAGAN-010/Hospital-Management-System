@@ -138,11 +138,74 @@ class Hospital:
         self.txtPrescrption=Text(DataframeRight,font=("arial",12,"bold"),width=45,height=16,padx=2,pady=6)
         self.txtPrescrption.grid(row=0,column=0)
 
+        #======================== BUTTON ===========================
         
-        lblPatientAddess=Label(DataframeLeft,font=("arial",12,"bold"),text="Patient Address:",padx=2,pady=6)
-        lblPatientAddess.grid(row=8,column=2,sticky=W)
-        txtPatientAddress=Entry(DataframeLeft,font=("arial",13,"bold"),width=35)
-        txtPatientAddress.grid(row=8,column=3)
+        btnprescription = Button(Buttonframe,text="Prescription",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnprescription.grid(row=0, column=0)
+
+        btnprescriptionData = Button(Buttonframe,text="Prescription Data",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnprescriptionData.grid(row=0, column=1)
+
+        btnUpdate = Button(Buttonframe,text="Update",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnUpdate.grid(row=0, column=2)
+
+        btnDelete = Button(Buttonframe,text="Delete",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnDelete.grid(row=0, column=3)
+
+        btnClear = Button(Buttonframe,text="Clear",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnClear.grid(row=0, column=4)
+
+        btnExit = Button(Buttonframe,text="Exit",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
+        btnExit.grid(row=0, column=5)
+
+        #======================== TABLE ===========================
+
+        #======================== SCROLL BAR ===========================
+
+        Scroll_x=ttk.Scrollbar(Detailsframe,orient=HORIZONTAL)
+        Scroll_y=ttk.Scrollbar(Detailsframe,orient=VERTICAL)
+        self.hospital_table=ttk.Treeview(Detailsframe,columns=("nameoftable","ref","dose","nooftablet","lot","issuedate","expdate","dailydose"
+                                                               ,"storage","nhsnumber","pname","dob","address"),xscrollcommand=Scroll_x.set,yscrollcommand=Scroll_y.set)
+        Scroll_x.pack(side=BOTTOM,fill=X)
+        Scroll_y.pack(side=RIGHT,fill=Y)
+
+        Scroll_x = ttk.Scrollbar(command=self.hospital_table.xview)
+        Scroll_y = ttk.Scrollbar(command=self.hospital_table.yview)
+
+        self.hospital_table.heading("ref", text="Reference No.")
+        self.hospital_table.heading("nameoftable", text="Name Of Table")
+        self.hospital_table.heading("dose", text="Dose")
+        self.hospital_table.heading("nooftablet", text="No Of Tablets")
+        self.hospital_table.heading("lot", text="Lot")
+        self.hospital_table.heading("issuedate", text="Issue Date")
+        self.hospital_table.heading("expdate", text="Exp Date")
+        self.hospital_table.heading("dailydose", text="Daily Date")
+        self.hospital_table.heading("storage", text="Storage")
+        self.hospital_table.heading("nhsnumber", text="NHS Number")
+        self.hospital_table.heading("pname", text="Patient Name")
+        self.hospital_table.heading("dob", text="DOB")
+        self.hospital_table.heading("address", text="Address")
+
+        self.hospital_table["show"] = "headings"
+
+        self.hospital_table.column("nameoftable", width=100)
+        self.hospital_table.column("ref", width=100)
+        self.hospital_table.column("dose", width=100)
+        self.hospital_table.column("nooftablet", width=100)
+        self.hospital_table.column("lot", width=100)
+        self.hospital_table.column("issuedate", width=100)
+        self.hospital_table.column("expdate", width=100)
+        self.hospital_table.column("dailydose", width=100)
+        self.hospital_table.column("storage", width=100)
+        self.hospital_table.column("nhsnumber", width=100)
+        self.hospital_table.column("pname", width=100)
+        self.hospital_table.column("dob", width=100)
+        self.hospital_table.column("address", width=100)
+
+        self.hospital_table.pack(fill=BOTH, expand=1 )
+         
+
+
 
 
 
