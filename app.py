@@ -225,6 +225,43 @@ class Hospital:
         self.hospital_table.pack(fill=BOTH, expand=1 )
          
 
+        #==================== DATABASE FUNCTIONALITY DECLEARATION ===============
+        def iprescriptionDate(self):
+            if self.Nameoftablets.get()=="" or self.ref.get()=="":
+                messagebox.showerror("Error","All fields are required")
+            else:
+                conn=mysql.connector.connect(host="localhost",username="root",password="8277",database="Mydata")
+                my_cursor=conn.cursor()
+                my_cursor.execute("insert into hospital values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)",(
+
+                                                                                                    self.Nameoftablets.get(),
+                                                                                                    self.ref.get(),
+                                                                                                    self.Dose.get(),
+                                                                                                    self.NumberofTablets.get(),
+                                                                                                    self.Lot.get(),
+                                                                                                    self.Issuedate.get(),
+                                                                                                    self.ExpDate.get(),
+                                                                                                    self.DailyDose.get(),
+                                                                                                    self.StorageAdvice.get(), 
+                                                                                                    self.nhsNumber.get(),
+                                                                                                    self.PatientName.get(),
+                                                                                                    self.DateOfBirth.get(),
+                                                                                                    self.PatientAddress.get()
+                                                                                                    
+                                                                                                     ))
+                conn.commit()
+                conn.close
+
+
+
+
+
+
+
+
+
+
+
 
 
 
