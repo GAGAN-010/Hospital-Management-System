@@ -428,39 +428,4 @@ class Hospital:
         txtPatientname=Entry(DataframeLeft,font=("arial",13,"bold"),textvariable=self.PatientName,width=35)
         txtPatientname.grid(row=6,column=3)
 
-        lblDateOfBirth=Label(DataframeLeft,font=("arial",12,"bold"),text="DateOfBirth:",padx=2,pady=6)
-        lblDateOfBirth.grid(row=7,column=2,sticky=W)
-        txtDateOfBirth=Entry(DataframeLeft,font=("arial",13,"bold"),textvariable=self.DateOfBirth,width=35)
-        txtDateOfBirth.grid(row=7,column=3)
-
-        lblPatientAddess=Label(DataframeLeft,font=("arial",12,"bold"),text="Patient Address:",padx=2,pady=6)
-        lblPatientAddess.grid(row=8,column=2,sticky=W)
-        txtPatientAddress=Entry(DataframeLeft,font=("arial",13,"bold"),textvariable=self.PatientAddress,width=35)
-        txtPatientAddress.grid(row=8,column=3)
-
-        #======================== DATA FRAME RIGHT ===========================
-
-        self.txtPrescrption=Text(DataframeRight,font=("arial",12,"bold"),width=45,height=16,padx=2,pady=6)
-        self.txtPrescrption.grid(row=0,column=0)
-
-        #======================== BUTTON ===========================
-        
-        btnprescription = Button(Buttonframe,text="Prescription",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnprescription.grid(row=0, column=0)
-
-        btnprescriptionData = Button(Buttonframe,text="Prescription Data",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnprescriptionData.grid(row=0, column=1)
-
-        btnUpdate = Button(Buttonframe,text="Update",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnUpdate.grid(row=0, column=2)
-
-        btnDelete = Button(Buttonframe,text="Delete",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnDelete.grid(row=0, column=3)
-
-        btnClear = Button(Buttonframe,text="Clear",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnClear.grid(row=0, column=4)
-
-        btnExit = Button(Buttonframe,text="Exit",bg="green",fg="white",font=("arial", 12, "bold"),width=23,height=2,padx=2,pady=6)
-        btnExit.grid(row=0, column=5)
-
-  
+   
