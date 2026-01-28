@@ -227,33 +227,47 @@ class Hospital:
 
         #==================== DATABASE FUNCTIONALITY DECLEARATION ===============
         def iprescriptionDate(self):
-            if self.Nameoftablets.get()=="" or self.ref.get()=="":
-                messagebox.showerror("Error","All fields are required")
-            else:
-                conn = mysql.connector.connect(host="localhost",user="hospital_user",password="hospital123",database="Mydata")
-                my_cursor=conn.cursor()
-                my_cursor.execute("insert into hospital values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)",(
+            if self.Nameoftablets.get() == "" or self.ref.get() == "":
+                messagebox.showerror("Error", "All fields are required")
+                return
 
-                                                                                                    self.Nameoftablets.get(),
-                                                                                                    self.ref.get(),
-                                                                                                    self.Dose.get(),
-                                                                                                    self.NumberofTablets.get(),
-                                                                                                    self.Lot.get(),
-                                                                                                    self.Issuedate.get(),
-                                                                                                    self.ExpDate.get(),
-                                                                                                    self.DailyDose.get(),
-                                                                                                    self.StorageAdvice.get(), 
-                                                                                                    self.nhsNumber.get(),
-                                                                                                    self.PatientName.get(),
-                                                                                                    self.DateOfBirth.get(),
-                                                                                                    self.PatientAddress.get()
-                                                                                                    
-                                                                                                     ))
-                conn.commit()
-                self.fatch_data()
-                conn.close
-                messagebox.showinfo("Success", "recoard has been inserted")
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="hospital_user",
+            password="hospital123",
+            database="Mydata"
+        )
+        my_cursor = conn.cursor()
 
+        query = """
+        INSERT INTO hospital
+        (nameoftable, ref, dose, nooftablet, lot, issuedate, expdate,
+        dailydose, storage, nhsnumber, pname, dob, address)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        """
+
+        values = (
+            self.Nameoftablets.get(),
+            self.ref.get(),
+            self.Dose.get(),
+            self.NumberofTablets.get(),
+            self.Lot.get(),
+            self.Issuedate.get(),
+            self.ExpDate.get(),
+            self.DailyDose.get(),
+            self.StorageAdvice.get(),
+            self.nhsNumber.get(),
+            self.PatientName.get(),
+            self.DateOfBirth.get(),
+            self.PatientAddress.get()
+        )
+
+        my_cursor.execute(query, values)
+        conn.commit()
+        conn.close()
+
+        self.fatch_data()
+        messagebox.showinfo("Success", "Record inserted successfully")
 
 
     def fatch_data(self):
