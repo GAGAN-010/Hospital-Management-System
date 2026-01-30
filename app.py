@@ -290,4 +290,10 @@ root=Tk()
 ob=Hospital(root)
 root.mainloop()
 
- 
+ nu=int(input("Enter the number: "))
+for i in range(nu+1):
+    for k in range(0,nu-i):
+        print(end=" ")
+    for j in range(0,i):
+        print("*",end=" ")
+    print()
